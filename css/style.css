@@ -1,0 +1,14 @@
+:root {
+    --outer-color: rgb(93, 93, 181);
+    --inner-color: rgb(224, 220, 178);
+    --bg-gradient: linear-gradient(90deg, var(--inner-color), var(--outer-color));  
+}
+
+.wHeader {
+    width:100%;
+    background-image: var(--bg-gradient);
+}
+
+.thirtyMarginTop {
+    margin-top:30px;
+}
