@@ -4,9 +4,16 @@
     --bg-gradient: linear-gradient(90deg, var(--inner-color), var(--outer-color));  
 }
 
-.wHeader {
+.wBackground {
     width:100%;
     background-image: var(--bg-gradient);
+}
+
+.bBack {
+    background-color: var(--inner-color);
+    color:var(--outer-color);
+    width:100vw;
+    padding-left:20px;
 }
 
 .thirtyMarginTop {
