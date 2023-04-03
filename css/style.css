@@ -23,3 +23,15 @@
 .italic {
     font-style: italic;
 }
+
+.rText {
+    text-align: center;
+}
+
+.lText {
+    text-align:left;
+}
+
+ul {
+    list-style-type: none;
+}
