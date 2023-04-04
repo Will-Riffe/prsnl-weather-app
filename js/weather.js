@@ -1,6 +1,5 @@
 // API key to plug in shorthand
-const apiKey = "88f48de05943207b41e879457d4a80bb";
-
+const apiKey = "ed5b70ee3a26a414b68275baca4b2daa";
 const form = document.querySelector("form");
 const searchInput = document.querySelector("#search");
 const recentSearches = document.querySelector("aside ul");
