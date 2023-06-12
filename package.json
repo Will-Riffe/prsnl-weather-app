@@ -1,0 +1,23 @@
+{
+  "name": "06.weather-app",
+  "version": "1.0.0",
+  "description": "Ideally, this is supposed to be a weather application which displays weather at certain locations for the next five days. It's still a work in progress.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Will-Riffe/prsnl-weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Will-Riffe/prsnl-weather-app/issues"
+  },
+  "homepage": "https://github.com/Will-Riffe/prsnl-weather-app#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
