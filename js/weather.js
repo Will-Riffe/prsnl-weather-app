@@ -28,7 +28,7 @@ form.addEventListener("submit", function (event) {
                 const cityId = cityMatch[0].id;
 
             // CALLING FORTH THE API
-            fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}`)
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}&units=imperial`)
                 .then(response => response.json())
                 .then(data => {
                     // JavaScript for updating the current weather
