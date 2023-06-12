@@ -1,6 +1,8 @@
 // API key to plug in shorthand
 const apiKey = "ed5b70ee3a26a414b68275baca4b2daa";
-const form = document.querySelector("form"); 
+
+const form = document.querySelector("form"); //MIGHT DELETE
+
 const search = document.querySelector("#search").value;
 const searchSegments = search.split(",");
 const city = searchSegments[0].trim();
@@ -9,14 +11,25 @@ const country = searchSegments[2].trim();
 
 const recentSearches = document.querySelector("aside ul");
 
+
 // Event listener for the search button
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const searchID = search.value;
+    // Hitching up the city index json from openweathermap
+    fetch("./json/cityList.json")
+        .then(response => response.json())
+        .then(data => {
+            const cityMatch = data.filter(item => {
+                return item.city === city && (!item.state || item.state === state) && item.country === country
+            });
 
+            if (matchingCities.length > 0) {
+                const cityId = cityMatch[0].id;
+            }
+        });
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityID}&limit=1&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityId}&limit=1&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
             const { lat, lon } = data[0];
