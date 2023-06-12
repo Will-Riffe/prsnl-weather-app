@@ -2,6 +2,11 @@
 const apiKey = "ed5b70ee3a26a414b68275baca4b2daa";
 const form = document.querySelector("form"); 
 const search = document.querySelector("#search").value;
+const searchSegments = search.split(",");
+const city = searchSegments[0].trim();
+const state = searchSegments[1].trim();
+const country = searchSegments[2].trim();
+
 const recentSearches = document.querySelector("aside ul");
 
 // Event listener for the search button
