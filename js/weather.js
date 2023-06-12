@@ -1,18 +1,10 @@
-// hooking up page elements
-const search = document.querySelector("search");
-const form = document.querySelector("form");
-const currentTemp = document.getElementById("temp");
-const currentDesc = document.getElementById("desc");
-const currentHumidity = document.getElementById("humidity");
-const currentWind = document.getElementById("wind");
-const forecastEl = document.getElementById("forecast-table");
-
 // API key to plug in shorthand
 const apiKey = "ed5b70ee3a26a414b68275baca4b2daa";
+const form = document.querySelector("form");
 const searchInput = document.querySelector("#search");
 const recentSearches = document.querySelector("aside ul");
 
-// Search Button Event Listener function
+// Event listener for the search button
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
