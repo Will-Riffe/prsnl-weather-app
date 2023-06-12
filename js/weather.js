@@ -1,7 +1,7 @@
 // API key to plug in shorthand
 const apiKey = "ed5b70ee3a26a414b68275baca4b2daa";
-const form = document.querySelector("form");
-const search = document.querySelector("#search");
+const form = document.querySelector("form"); 
+const search = document.querySelector("#search").value;
 const recentSearches = document.querySelector("aside ul");
 
 // Event listener for the search button
@@ -9,9 +9,9 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const searchID = search.value;
-    
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`)
+
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityID}&limit=1&appid=${apiKey}`)
         .then(response => response.json())
         .then(data => {
             const { lat, lon } = data[0];
