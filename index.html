@@ -1,124 +1,116 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Weather Application</title>
-    <link rel="stylesheet" href="css/foundation.css">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Weather Application</title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
 <body class="grid-container wBackground">
 
-    <header class="bBack">
-      <h1>Weather Dashboard</h1>
-    </header>
+  <header class="bBack">
+    <h1>Weather Dashboard</h1>
+  </header>
 
-    <main class="grid-x grid-padding-x">
+  <main class="grid-x grid-padding-x">
 
-      <section  class="large-7 small-7 cell">
-        <h3>Search for a City</h3>
-        <form>
-          <label for="search">Enter a city:</label>
-          <input type="text" id="search" name="search" placeholder="City, State, Country" required>
-          <button type="submit" class="button">Search</button>
-        </form>
-      </section>
+    <section class="large-7 small-7 cell">
+      <h3>Search for a City</h3>
+      <form>
+        <label for="search">Enter a city:</label>
+        <input type="text" id="search" name="search" placeholder="City, State, Country" required>
+        <button type="submit" class="button">Search</button>
+      </form>
+    </section>
 
-      <aside class="large-5 small-5 cell">
-        <h4>Recent Searches</h4>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+    <aside class="large-5 small-5 cell">
+      <h4>Recent Searches</h4>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </aside>
+
+    <section id="currentWeather" class="large-2 cell thirtyMarginTop">
+      <h3 id="locationName">Location: </h3>
+      <h5 id="time"></h5>
+      <article class="italic">
+        <h5><em><u>Present Conditions</u></em></h5>
+        <p>Weather: <span id="weather"></span></p>
+        <p>Temperature: <span id="temperature"></span></p>
+        <p>Feels Like: <span id="feels-like"></span></p>
+        <p>Humidity: <span id="humidity"></span></p>
+      </article>
+    </section>
+
+
+    <section class="large-9 cell thirtyMarginTop grid-x grid-margin-x">
+      <h3 class="large-12 rText">5-Day Forecast</h3>
+      <article class="large-1 cell"></article>
+      <article class="large-2 cell card" id="today">
+        <header class="card-divider">
+          <h5 class="rText"></h5>
+        </header>
+        <ul class="card-section lText">
+          <li>Temp:</li>
+          <li>Wind:</li>
+          <li>Humidity:</li>
         </ul>
-      </aside>
+      </article>
+      <article class="large-2 cell card" id="tomorrow">
+        <header class="card-divider">
+          <h5 class="rText"></h5>
+        </header>
+        <ul class="card-section lText">
+          <li>Temp:</li>
+          <li>Wind:</li>
+          <li>Humidity:</li>
+        </ul>
+      </article>
+      <article class="large-2 cell card" id="twoDays">
+        <header class="card-divider">
+          <h5 class="rText"></h5>
+        </header>
+        <ul class="card-section lText">
+          <li>Temp:</li>
+          <li>Wind:</li>
+          <li>Humidity:</li>
+        </ul>
+      </article>
+      <article class="large-2 cell card" id="threeDays">
+        <header class="card-divider">
+          <h5 class="rText"></h5>
+        </header>
+        <ul class="card-section lText">
+          <li>Temp:</li>
+          <li>Wind:</li>
+          <li>Humidity:</li>
+        </ul>
+      </article>
+      <article class="large-2 cell card" id="fourDays">
+        <header class="card-divider">
+          <h5 class="rText"></h5>
+        </header>
+        <ul class="card-section lText">
+          <li>Temp:</li>
+          <li>Wind:</li>
+          <li>Humidity:</li>
+        </ul>
+      </article>
+    </section>
+  </main>
 
-      <section id="currentWeather" class="large-2 cell thirtyMarginTop">
-        <h3 id="locationName">Current City</h3>        
-        <article class="italic">
-          <h5><em><u>Present Conditions</u></em></h5>
-          <p>Weather: <span id="weather"></span></p>
-          <p>Temperature: <span id="temperature"></span></p>
-          <p>Feels Like: <span id="feels-like"></span></p>
-          <p>Humidity: <span id="humidity"></span></p>
-        </article>
-      </section>
-      
-
-      <section class="large-9 cell thirtyMarginTop grid-x grid-margin-x">
-
-        <h3 class="large-12 rText">5-Day Forecast</h3>
-
-        <article class="large-1 cell"></article>
-
-        <article class="large-2 cell card" id="Today">
-          <header class="card-divider">
-            <h5 class="rText"></h5>
-          </header>
-          <ul class="card-section lText">
-            <li>Temp:</li>
-            <li>Wind:</li>
-            <li>Humidity:</li>
-          </ul>
-        </article>
-        
-        <article class="large-2 cell card" id="tomorrow">
-          <header class="card-divider">
-            <h5 class="rText"></h5>
-          </header>
-          <ul class="card-section lText">
-            <li>Temp:</li>
-            <li>Wind:</li>
-            <li>Humidity:</li>
-          </ul>
-        </article>
-        
-        <article class="large-2 cell card" id="twoDays">
-          <header class="card-divider">
-            <h5 class="rText"></h5>
-          </header>
-          <ul class="card-section lText">
-            <li>Temp:</li>
-            <li>Wind:</li>
-            <li>Humidity:</li>
-          </ul>
-        </article>
-        
-        <article class="large-2 cell card" id="threeDays">
-          <header class="card-divider">
-            <h5 class="rText"></h5>
-          </header>
-          <ul class="card-section lText">
-            <li>Temp:</li>
-            <li>Wind:</li>
-            <li>Humidity:</li>
-          </ul>
-        </article>
-        
-        <article class="large-2 cell card" id="fourDays">
-          <header class="card-divider">
-            <h5 class="rText"></h5>
-          </header>
-          <ul class="card-section lText">
-            <li>Temp:</li>
-            <li>Wind:</li>
-            <li>Humidity:</li>
-          </ul>
-        </article>
-        
-
-      </section>
-    </main>
-
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/weather.js"></script>
-  </body>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/what-input.js"></script>
+  <script src="js/vendor/foundation.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/weather.js"></script>
+</body>
 
 </html>
-
