@@ -6,6 +6,7 @@ class WeatherApp {
         this.recentSearches = document.querySelector("aside ul");
         this.locationName = document.querySelector("#locationName");
 
+
         this.temperature = document.querySelector("#temperature");
         this.weather = document.querySelector("#weather");
         this.humidity = document.querySelector("#humidity");
@@ -80,42 +81,54 @@ class WeatherApp {
         }
 
     }
-    
+
     populateFiveDayForecast(forecastData) {
         const forecastArticles = document.querySelectorAll(".large-2.cell.card");
         const days = ["today", "tomorrow", "twoDays", "threeDays", "fourDays"];
-    
+
         for (let i = 0; i < forecastArticles.length; i++) {
-          const forecast = forecastData[i * 8]; // Weather data for a specific day at index i * 8
-          const article = forecastArticles[i];
-          const date = new Date(forecast.dt_txt);
-          const day = days[i];
-    
-          const header = article.querySelector("header h5");
-          const tempLi = article.querySelector("ul li:nth-child(1)");
-          const windLi = article.querySelector("ul li:nth-child(2)");
-          const humidityLi = article.querySelector("ul li:nth-child(3)");
-    
-          header.textContent = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the day
-          tempLi.textContent = `Temp: ${forecast.main.temp} °F`;
-          windLi.textContent = `Wind: ${forecast.wind.speed} mph`;
-          humidityLi.textContent = `Humidity: ${forecast.main.humidity}%`;
+            const forecast = forecastData[i * 8];
+            const article = forecastArticles[i];
+            const date = new Date(forecast.dt_txt);
+            const day = days[i];
+
+            const header = article.querySelector("header h5");
+            const tempLi = article.querySelector("ul li:nth-child(1)");
+            const windLi = article.querySelector("ul li:nth-child(2)");
+            const humidityLi = article.querySelector("ul li:nth-child(3)");
+
+            header.textContent = day.charAt(0).toUpperCase() + day.slice(1); // Capitalize the day
+            tempLi.textContent = `Temp: ${forecast.main.temp} °F`;
+            windLi.textContent = `Wind: ${forecast.wind.speed} mph`;
+            humidityLi.textContent = `Humidity: ${forecast.main.humidity}%`;
         }
-      }
-    
+    }
+
 
     saveSearch(cityName) {
-        localStorage.setItem("cityName", cityName);
+        WeatherApp.addToSearchHistory(cityName);
     }
 
-    displayRecentSearches() {
-        const savedCityName = localStorage.getItem("cityName");
-        if (savedCityName) {
-            const li = document.createElement("li");
-            li.textContent = savedCityName;
-            this.recentSearches.appendChild(li);
-        }
+    static addToSearchHistory(searchTerm) {
+        let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+        searchHistory.unshift(searchTerm);
+        searchHistory = searchHistory.slice(0, 10);
+        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+        WeatherApp.displaySearchHistory(); // Call the static method using the class name
     }
+
+    static displaySearchHistory() {
+        let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+        let searchHistoryEl = document.getElementById("search-history");
+        searchHistoryEl.innerHTML = "";
+
+        searchHistory.forEach((searchTerm) => {
+            const li = document.createElement("li");
+            li.textContent = searchTerm;
+            searchHistoryEl.appendChild(li);
+        });
+    }
+
 }
 
 const apiKey = "ed5b70ee3a26a414b68275baca4b2daa";
