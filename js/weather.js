@@ -88,8 +88,8 @@ class WeatherApp {
             const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
             const iconEl = document.createElement("img");
             iconEl.src = iconUrl;
-            const iconLi = document.getElementById("icon"); // Assuming you have an ID "icon" for the icon element
-            iconLi.innerHTML = ""; // Clear previous icon
+            const iconLi = document.getElementById("icon");
+            iconLi.innerHTML = "";
             iconLi.appendChild(iconEl);
 
         } else {
@@ -109,9 +109,9 @@ class WeatherApp {
           const date = new Date(forecast.dt_txt);
       
           const header = article.querySelector("header h5");
-          const tempLi = article.querySelector("ul li:nth-child(2)"); // Update this line
+          const tempLi = article.querySelector("ul li:nth-child(2)"); 
           const windLi = article.querySelector("ul li:nth-child(3)");
-          const humidityLi = article.querySelector("ul li:nth-child(4)"); // Update this line
+          const humidityLi = article.querySelector("ul li:nth-child(4)"); 
           const iconLi = article.querySelector("ul li:nth-child(1)");
       
           header.textContent = date.toLocaleDateString("en-US", { weekday: "long" });
@@ -154,7 +154,7 @@ class WeatherApp {
           li.textContent = searchTerm;
           li.addEventListener("click", () => {
             const clickedSearchTerm = li.textContent;
-            this.runSearch(clickedSearchTerm); // Updated this line
+            this.runSearch(clickedSearchTerm);
           });
           searchHistoryEl.appendChild(li);
         });
